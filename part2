@@ -1,0 +1,50 @@
+#устанавливаем меню для Кисти(Brush) и Размера(Size)
+        threepxAction = QAction(QIcon("icons/threepx.PNG"), "3px", self)
+        threepxAction.setShortcut("Ctrl+T")
+        brushMenu.addAction(threepxAction)
+        threepxAction.triggered.connect(self.threePx)
+
+        fivepxAction = QAction(QIcon("icons/fivepx.PNG"), "5px", self)
+        fivepxAction.setShortcut("Ctrl+F")
+        brushMenu.addAction(fivepxAction)
+        fivepxAction.triggered.connect(self.fivePx)
+
+        sevenpxAction = QAction(QIcon("icons/sevenpx.PNG"), "7px", self)
+        sevenpxAction.setShortcut("Ctrl+E")
+        brushMenu.addAction(sevenpxAction)
+        sevenpxAction.triggered.connect(self.sevenPx)
+
+        ninepxAction = QAction(QIcon("icons/ninepx.PNG"), "9px", self)
+        ninepxAction.setShortcut("Ctrl+N")
+        brushMenu.addAction(ninepxAction)
+        ninepxAction.triggered.connect(self.ninePx)
+
+        blackAction = QAction(QIcon("icons/black.PNG"), "Black", self)
+        blackAction.setShortcut("Ctrl+B")
+        brushColor.addAction(blackAction)
+        blackAction.triggered.connect(self.blackColo)
+
+        redAction = QAction(QIcon("icons/red.PNG"), "Red", self)
+        redAction.setShortcut("Ctrl+W")
+        brushColor.addAction(redAction)
+        redAction.triggered.connect(self.redColo)
+
+        greenAction = QAction(QIcon("icons/green.PNG"), "Green", self)
+        greenAction.setShortcut("Ctrl+G")
+        brushColor.addAction(greenAction)
+        greenAction.triggered.connect(self.greenColo)
+
+        palitraAction = QAction(QIcon("icons/palitra.PNG"), "Palitra", self)
+        palitraAction.setShortcut("Ctrl+I")
+        brushColor.addAction(palitraAction)
+        palitraAction.triggered.connect(self.palitraColor)
+
+        yellowAction = QAction(QIcon("icons/yellow.PNG"), "Yellow", self)
+        yellowAction.setShortcut("Ctrl+L")
+        brushColor.addAction(yellowAction)
+        yellowAction.triggered.connect(self.yellowColo)
+
+        eraserAction = QAction(QIcon("icons/eraser.PNG"), "Eraser", self)
+        eraserAction.setShortcut("Ctrl+O")
+        brushColor.addAction(eraserAction)
+        eraserAction.triggered.connect(self.eraser)
