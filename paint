@@ -1,0 +1,50 @@
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMenuBar, QMenu, QAction, QFileDialog, QColorDialog
+from PyQt5.QtGui import QIcon, QImage, QPainter, QPen
+from PyQt5.QtCore import Qt, QPoint
+import sys
+
+
+class Window(QMainWindow):
+
+    def __init__(self):
+        super().__init__()
+
+        top = 300
+        left = 300
+        width = 800
+        height = 600
+
+        icon = "icons/pain.PNG"
+
+        self.setWindowTitle("Paint Application")
+        self.setGeometry(top, left, width, height)
+        self.setWindowIcon(QIcon(icon))
+
+        self.image = QImage(self.size(), QImage.Format_RGB32)
+        self.image.fill(Qt.white)
+
+        self.drawing = False
+        self.brushSize = 2
+        self.brushColor = Qt.black
+
+        self.lastPoint = QPoint()
+
+        mainMenu = self.menuBar()
+        fileMenu = mainMenu.addMenu("File")
+        brushMenu = mainMenu.addMenu("Brush Size")
+        brushColor = mainMenu.addMenu("Brush Color")
+        #устанавливаем меню для кнопки File
+        saveAction = QAction(QIcon("icons/save.png"), "Save", self)
+        saveAction.setShortcut("Ctrl+S")
+        fileMenu.addAction(saveAction)
+        saveAction.triggered.connect(self.save)
+
+        clearAction = QAction(QIcon("icons/clear.PNG"), "Clear", self)
+        clearAction.setShortcut("Ctrl+C")
+        fileMenu.addAction(clearAction)
+        clearAction.triggered.connect(self.clear)
+
+        openAction = QAction(QIcon("icons/save.PNG"), "Open", self)
+        openAction.setShortcut("Ctrl+O")
+        fileMenu.addAction(openAction)
+        openAction.triggered.connect(self.openfile)
